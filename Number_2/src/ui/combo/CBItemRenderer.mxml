@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009"
+				xmlns:s="library://ns.adobe.com/flex/spark"
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				height="53" autoDrawBackground="false" rollOut="{currentState = 'normal'}"
+				rollOver="{currentState = 'hovered'}"
+				width.normal="250" height.normal="53">
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="hovered"/>
+	</s:states>
+	
+	<s:Rect includeIn="hovered" left="0" right="0" top="0" bottom="0" width.normal="250" height.normal="53">
+		<s:fill> 
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry color="#FBFA9D" 
+								 alpha="0.85" />
+				<s:GradientEntry color="#FFFFFF" 
+								 alpha="0.85" />
+			</s:LinearGradient>		
+		</s:fill>
+	</s:Rect>
+	
+	<s:Group height="100%" > 
+		<s:Group height="100%">
+			<s:BitmapImage source="{data.icon}"/>
+		</s:Group>
+		<s:HGroup width="250" paddingLeft="50" paddingTop="10" gap="14" height="100%">
+		<s:Label color="#F7F963"  fontFamily="Georgia" fontSize="13" fontWeight="bold" text="{data.type}"  verticalCenter="0" 
+			 color.hovered="#042C52"
+			 color.normal="#000000" fontFamily.normal="Georgia" fontSize.normal="11"
+			 fontStyle.normal="normal" textDecoration.normal="none"/>
+		</s:HGroup>
+			
+	</s:Group>
+		
+</s:ItemRenderer>
