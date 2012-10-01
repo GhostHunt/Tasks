@@ -184,12 +184,6 @@
 		<s:State name="hovered" />
 	</s:states>
 	
-	<!-- background -->
-	<!--<s:Rect left="0" right="0" top="0" bottom="0">
-		<s:fill>
-			<s:SolidColor color="#FFFFFF" color.normal="#EEEEEE"  />
-		</s:fill>
-	</s:Rect>-->
 	
 	<s:VGroup horizontalAlign="justify" height="100%" width="100%" gap="-6">
 		<s:Line >
@@ -218,9 +212,7 @@
 									 alpha="0.85" />
 				</s:LinearGradient>		
 			</s:fill>
-		</s:Rect>	
-	
-
+		</s:Rect>		
 
 	 
 	<s:HGroup left="7" right="7" top="5" bottom="5" gap="2" verticalAlign="middle">

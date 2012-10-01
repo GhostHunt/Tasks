@@ -9,10 +9,7 @@
 			rowHeight="20"
 			>
 		<!--variableRowHeight="true" -->
-	
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
+
 	
 	<fx:Script>
 		<![CDATA[
@@ -23,15 +20,15 @@
 	<s:columns>
 		<s:ArrayList>
 			<s:GridColumn headerText=""  width="25" dataField="number" headerRenderer="IconHeaderRenderer2" itemRenderer="inColumn"/>
-			<s:GridColumn headerText="A" width="70"/>
-			<s:GridColumn headerText="B" width="70"/>
-			<s:GridColumn headerText="C" width="70"/>
-			<s:GridColumn headerText="D" width="70"/>
-			<s:GridColumn headerText="E" width="70"/>
-			<s:GridColumn headerText="F" width="70"/>
-			<s:GridColumn headerText="G" width="70"/>
-			<s:GridColumn headerText="H" width="70"/>
-			<s:GridColumn headerText="I" width="70"/>			
+			<s:GridColumn headerText="A" width="65"/>
+			<s:GridColumn headerText="B" width="65"/>
+			<s:GridColumn headerText="C" width="65"/>
+			<s:GridColumn headerText="D" width="65"/>
+			<s:GridColumn headerText="E" width="65"/>
+			<s:GridColumn headerText="F" width="65"/>
+			<s:GridColumn headerText="G" width="65"/>
+			<s:GridColumn headerText="H" width="65"/>
+			<s:GridColumn headerText="I" width="65"/>			
 		</s:ArrayList>
 	</s:columns>
 	<s:ArrayList>

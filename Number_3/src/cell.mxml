@@ -12,7 +12,6 @@
 		<s:State name="down" />
 	</s:states>
 	
-	
 	<fx:Declarations>			
 		
 		<!--- @private -->
@@ -37,9 +36,7 @@
 		The default is spark.skins.spark.DefaultGridHeaderRenderer -->
 		<fx:Component id="headerRenderer">
 			<s:DefaultGridHeaderRenderer />
-		</fx:Component>
-		
-		
+		</fx:Component>				
 		
 		<!--- @private -->
 		<fx:Component id="rowSeparator">
@@ -48,9 +45,7 @@
 					<s:SolidColorStroke color="#d0d7e5" weight="1" caps="square"/> <!--!!!!!!!! ROWS!!!!!!-->
 				</s:stroke>
 			</s:Line>
-		</fx:Component>
-		
-		
+		</fx:Component>			
 		
 		<!--- @private -->
 		<fx:Component id="editorIndicator">
@@ -61,79 +56,21 @@
 			</s:Rect>
 		</fx:Component>                    
 		
-	</fx:Declarations>
+	</fx:Declarations>	
 	
 	
 	<fx:Declarations>
 		
-		<fx:Component id="caretIndicator">		
-			
-			<s:Rect implements="spark.components.gridClasses.IGridVisualElement">
-				<fx:Script>
-					<![CDATA[
-						import mx.controls.dataGridClasses.DataGridColumn;
-						
-						import spark.components.DataGrid;
-						import spark.components.Grid;
-						/**
-						 * @private
-						 */
-						
-						public function prepareGridVisualElement(grid:Grid, rowIndex:int, columnIndex:int):void
-						{
-							const dataGrid:DataGrid = grid.dataGrid;
-							if (!dataGrid || columnIndex==0)
-								return;		
-						}
-					]]>
-				</fx:Script>
-				
-				<s:stroke>					
-					<s:SolidColorStroke id="caretIndicatorFill" color="#000000" weight="3" />
-				</s:stroke>				
-			</s:Rect>						
-		</fx:Component>			
-		
-		<fx:Component id="selectionIndicator">		
-			<s:VGroup verticalAlign="bottom" horizontalAlign="right" gap="-4">
-				<s:BitmapImage width="7" height="7"  source="assets/4.png">
-					<fx:Script>
-						<![CDATA[
-							import mx.controls.dataGridClasses.DataGridColumn;
-							
-							import spark.components.DataGrid;
-							import spark.components.Grid;
-							/**
-							 * @private
-							 */
-							
-							public function prepareGridVisualElement(grid:Grid, rowIndex:int, columnIndex:int):void
-							{
-								const dataGrid:DataGrid = grid.dataGrid;
-								if (!dataGrid || columnIndex==0)
-									return;		
-							}
-						]]>
-					</fx:Script>
-				</s:BitmapImage>
-				
-				<s:Rect>
-					<s:stroke>
-						<s:SolidColorStroke id="selectionIndicatorFill" color="#000000" weight="3" />
-					</s:stroke>
-				</s:Rect>
-				
-			</s:VGroup>
-			
-		</fx:Component>	
-		
-		<fx:Component>
-			<s:Rect >				
-				<s:stroke>					
-					<s:SolidColorStroke color="#000000" weight="3" />
-				</s:stroke>				
-			</s:Rect>
-		</fx:Component>
+		<fx:Component id="caretIndicator">	
+			<s:Group >				
+				<s:Rect height="20" left="0" right="0" top="0" bottom="0" >				
+					<s:stroke>					
+						<s:SolidColorStroke  id="caretIndicatorFill" color="#000000"  weight="3" />
+					</s:stroke>				
+				</s:Rect>				
+				<s:BitmapImage horizontalAlign="right" verticalAlign="bottom" right="-2" bottom="-2" source="assets/4.png"/>
+			</s:Group>
+		</fx:Component>				
 		
 	</fx:Declarations>	
 	

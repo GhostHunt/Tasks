@@ -5,11 +5,20 @@
 	
 	<fx:Script>
 		<![CDATA[
+			
+			import spark.events.GridSelectionEvent;
+			
+			private function dataGrid_selectionChangingHandler(event:GridSelectionEvent):void
+			{
+				var index:int = event.selectionChange.columnIndex;	
+				if(index==0)
+					event.preventDefault();
+			}
 		]]>
 	</fx:Script>
 	
 	
-	<local:DGrid id="dataGrid" x="100" y="100" selectionMode="singleCell" skinClass="cell" />	
+	<local:DGrid id="dataGrid" x="100" y="100" selectionMode="singleCell" skinClass="cell" selectionChanging="dataGrid_selectionChangingHandler(event)" />	
 	
 	
 </s:Application>

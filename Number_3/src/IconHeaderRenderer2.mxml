@@ -190,29 +190,6 @@
 		</s:fill>
 	</s:Rect>
 	
-	<!-- shadow (down state only) -->
-	<!--<s:Rect includeIn="down" left="0" right="0" y="0" height="4">
-		<s:fill>
-			<s:LinearGradient rotation="90">
-				<s:GradientEntry alpha="0.23" color="#000000" ratio="0"/>
-				<s:GradientEntry alpha="0.20" color="#000000" ratio="0.4"/>
-				<s:GradientEntry alpha="0.055" color="#000000" ratio="0.55"/>
-				<s:GradientEntry alpha="0.0" color="#000000" ratio="0.8"/>
-			</s:LinearGradient>
-		</s:fill>
-	</s:Rect>
-	<s:Rect includeIn="down" x="0" width="4" top="0" bottom="0">
-		<s:fill>
-			<s:LinearGradient rotation="0">
-				<s:GradientEntry alpha="0.13" color="#000000" ratio="0"/>
-				<s:GradientEntry alpha="0.12" color="#000000" ratio="0.2"/>
-				<s:GradientEntry alpha="0.0" color="#000000" ratio="0.55"/>
-			</s:LinearGradient>
-		</s:fill>
-	</s:Rect>-->
-	
-
-
 	
 	<s:VGroup horizontalAlign="justify" height="100%" width="100%" gap="0">
 		<s:Line >
