@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:GridItemEditor xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				  xmlns:s="library://ns.adobe.com/flex/spark" 
+				  xmlns:mx="library://ns.adobe.com/flex/mx" width="400" height="300" xmlns:local="*"
+				 
+				  >
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.sampler.clearSamples;
+			
+			import mx.collections.ArrayCollection;
+
+			
+									
+			private var newValue:String;
+			private var oldValue:String;		
+
+			
+			public static function isDigit(char:String):Boolean
+		
+			{	
+				return char >= "0" && char <= "9";
+			}
+			
+			public static function isSymbol(char:String):Boolean
+			{
+				if( char=="+" || char=="-" || char=="/" || char=="*")
+					return true;
+				return false;
+			}
+						
+			override public function get value() : Object
+			{ 
+			  oldValue=putText.text;				
+			  var N:Number=putText.text.length;	
+			  var result:int;
+			  var Text:String;
+			  var arr:Array;
+			  
+				Text=putText.text; 	
+				data["y"+columnIndex]=oldValue;
+				arr=Text.split("");				
+
+				if(arr[0]=='=')
+				{	
+					var x:int=arr[1];
+			  		var y:int=arr[3];			
+					if (N==4 && isDigit(arr[1]) && isDigit(arr[3]) && isSymbol(arr[2]))
+					{
+						switch(arr[2])
+						{
+							case "+": {result=x+y; break;}
+							case "-": {result=x-y; break;}
+							case "/": {result=x/y; break;}
+						    case "*": {result=x*y; break;}
+						}	
+						return result;
+					}
+					else return "#NAME?";
+				}		
+				
+				return Text;
+			}		
+			
+			override public function set value(value:Object):void
+			{
+				putText.text=" " + data["x"+columnIndex];			
+			}	
+
+
+				override public function setFocus():void
+			{	
+				putText.text=data["y"+columnIndex].toString();
+				putText.setFocus();				
+			}		
+			
+						
+		]]>
+	</fx:Script>
+	<local:MyTextInput id="putText" width="65" height="20" borderVisible="true"
+					   contentBackgroundColor="#FFFFFF" skinClass="MyTextInputSkin" 
+					   verticalCenter="1"/>
+	
+</s:GridItemEditor>

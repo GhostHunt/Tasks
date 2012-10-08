@@ -1,0 +1,47 @@
+
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+			 xmlns:fb="http://ns.adobe.com/flashbuilder/2009" 
+			 alpha.disabledStates="0.5" blendMode="normal">
+	<fx:Metadata>[HostComponent("MyTextInput")]</fx:Metadata>
+	
+	<fx:Script fb:purpose="styling">
+		
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="disabled" stateGroups="disabledStates"/>
+		<s:State name="normalWithPrompt"/>
+		<s:State name="disabledWithPrompt" stateGroups="disabledStates"/>
+	</s:states>
+	
+	
+	<s:Group >				
+		<s:Rect height="20" width="65" left="-1" right="0" top="-1" bottom="0" >				
+			<s:stroke>					
+				<s:SolidColorStroke color="#000000"  weight="2" alpha="1" />
+			</s:stroke>				
+		</s:Rect>				
+		<s:BitmapImage horizontalAlign="right" verticalAlign="bottom" right="-2" bottom="-2" source="assets/square.png"/>
+	</s:Group>
+	
+	<s:Rect  left="1" right="3" top="1" bottom="1">
+		<s:fill>
+			<!--- @private Defines the background fill color. -->
+			<s:SolidColor id="bgFill" color="0xFFFFFF" />
+		</s:fill>
+	</s:Rect>	
+	
+	<s:RichEditableText id="textDisplay"
+						verticalAlign="middle"
+						widthInChars="10"
+						left="1" right="1" top="1" bottom="1" />
+	
+	<s:Label id="promptDisplay" maxDisplayedLines="1"
+			 verticalAlign="middle"
+			 mouseEnabled="false" mouseChildren="false"
+			 includeIn="normalWithPrompt,disabledWithPrompt" 
+			 includeInLayout="false"
+			 />
+	
+</s:SparkSkin>

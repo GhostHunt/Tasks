@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" xmlns:local="*">
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.containers.Grid;
+			import mx.controls.Alert;
+			
+			[Bindable]
+			private var myDPr:ArrayCollection=new ArrayCollection([
+				{number:"1", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"2", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"3", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"4", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"5", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"6", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"7", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"8", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"9", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""},
+				{number:"10", x1:"", x2:"", x3:"", x4:"", x5:"", x6:"", x7:"", x8:"", x9:"",
+					y1:"", y2:"", y3:"", y4:"", y5:"", y6:"", y7:"", y8:"", y9:""}
+			]);
+			
+			
+			import spark.components.DataGrid;
+			import spark.components.gridClasses.IGridItemEditor;
+			import spark.events.GridItemEditorEvent;
+			import spark.events.GridSelectionEvent;
+			
+			
+	
+			
+			private function dataGrid_selectionChangingHandler(event:GridSelectionEvent):void
+			{
+				var index:int = event.selectionChange.columnIndex;	
+				if(index==0)
+					event.preventDefault();				
+				
+			}	
+			
+			import spark.events.GridEvent;
+			private var mouseDownRowIndex:int;
+			private var mouseDownColumnIndex:int;
+			private var RowIndex:int;
+			private var ColumnIndex:int;
+			
+			protected function dataGrid_gridMouseDownHandler(event:GridEvent):void
+			{
+				mouseDownRowIndex = event.rowIndex-1;
+				mouseDownColumnIndex = event.columnIndex;
+				RowIndex=mouseDownRowIndex;
+				ColumnIndex=mouseDownColumnIndex;
+			}
+			
+			protected function dataGrid_gridMouseUpHandler(event:GridEvent):void
+			{
+				if (event.rowIndex >= 0 &&
+					event.rowIndex == mouseDownRowIndex && 
+					event.columnIndex == mouseDownColumnIndex &&
+					event.column.editable &&
+					!event.grid.dataGrid.itemEditorInstance)
+				{					
+					event.grid.dataGrid.startItemEditorSession(event.rowIndex, event.columnIndex);
+				}
+			}
+			
+			
+			protected function dGrid_gridItemEditorSessionSaveHandler(event:GridItemEditorEvent):void
+			{
+				RowIndex+=1;	
+				mouseDownRowIndex=RowIndex;
+				dGrid.startItemEditorSession(RowIndex, ColumnIndex);
+			}
+			
+		]]>
+		
+	</fx:Script>
+	
+	
+	<s:DataGrid id="dGrid" x="100" y="100"		
+				dataProvider="{myDPr}"
+				borderColor="#FFFFFF" 
+				borderVisible="false" 
+				horizontalScrollPolicy="off"
+				rowHeight="20"
+				
+				editable="true"	
+				selectionMode="singleCell" 
+				skinClass="ExcelDataGridSkin" 
+				selectionChanging="dataGrid_selectionChangingHandler(event)"
+				sortableColumns="false"	
+				
+				gridMouseDown="dataGrid_gridMouseDownHandler(event)" gridMouseUp="dataGrid_gridMouseUpHandler(event)"			 
+				gridItemEditorSessionSave="dGrid_gridItemEditorSessionSaveHandler(event)"
+				itemEditor="ExcelEditor"
+				itemRenderer="ExelRenderer"
+				
+				>	
+		
+		<s:columns>
+			<s:ArrayList>
+				<s:GridColumn dataField="number" headerText=""  width="25"  headerRenderer="IconHeaderRenderer" itemRenderer="ExcelGridItemRenderer"/>
+				<s:GridColumn dataField="x1" headerText="A" width="65" />
+				<s:GridColumn dataField="x2" headerText="B" width="65" />
+				<s:GridColumn dataField="x3" headerText="C" width="65" />
+				<s:GridColumn dataField="x4" headerText="D" width="65" />
+				<s:GridColumn dataField="x5" headerText="E" width="65" />
+				<s:GridColumn dataField="x6" headerText="F" width="65" />
+				<s:GridColumn dataField="x7" headerText="G" width="65" />
+				<s:GridColumn dataField="x8" headerText="H" width="65" />
+				<s:GridColumn dataField="x9" headerText="I" width="65" />			
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>
+	
+</s:Application>

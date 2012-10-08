@@ -4,7 +4,7 @@
 	xmlns:mx="library://ns.adobe.com/flex/mx"
 	xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
 	alpha.disabled="0.5" minWidth="89" minHeight="84">
-	<fx:Metadata>[HostComponent("DGrid")]</fx:Metadata>
+	<fx:Metadata>[HostComponent("spark.components.DataGrid")]</fx:Metadata>
 	
 	<s:states>
 		<s:State name="normal" />
@@ -51,26 +51,10 @@
 		<fx:Component id="editorIndicator">
 			<s:Rect>
 				<s:fill>
-					<s:SolidColor color="#00fe12"/>
+					<s:SolidColor color="#ffffff"/>
 				</s:fill>                
 			</s:Rect>
 		</fx:Component>                    
-		
-	</fx:Declarations>	
-	
-	
-	<fx:Declarations>
-		
-		<fx:Component id="caretIndicator">	
-			<s:Group >				
-				<s:Rect height="20" left="0" right="0" top="0" bottom="0" >				
-					<s:stroke>					
-						<s:SolidColorStroke  id="caretIndicatorFill" color="#000000"  weight="3" />
-					</s:stroke>				
-				</s:Rect>				
-				<s:BitmapImage horizontalAlign="right" verticalAlign="bottom" right="-2" bottom="-2" source="assets/4.png"/>
-			</s:Group>
-		</fx:Component>				
 		
 	</fx:Declarations>	
 	
